@@ -2,22 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
+
+html, body {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
 
 body{
     background-size: cover;
+    background-position: center;
     z-index:-7;   
-    height:100%;
+    min-height: 100vh;
     width: 100%;
     background-repeat: no-repeat;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
 
 body:before{
     content:'';
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     left:0;
     top:0;
     bottom:0; 
@@ -26,8 +37,9 @@ body:before{
     -webkit-filter: blur(3px);
     z-index: -8;
     background: url('img/background.jpg');
-   
-   
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 body::after{
@@ -248,43 +260,131 @@ p{
 }
 
 /* MEDIA QUERY */
-@media only screen and (max-width:399px){
+
+/* Mobile nhỏ (điện thoại nhỏ) */
+@media only screen and (max-width: 399px){
     body{
-        height: 0 auto;
-        width:100%;
-        background-size:cover;
+        min-height: 100vh;
+        width: 100%;
+        background-size: cover;
         background-repeat: no-repeat;
+        overflow-x: hidden;
     }
     
     .container{
-       margin:3% auto;
-       
-   }
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        min-height: 380px;
+        margin: 5% auto;
+        padding: 10px 5px;
+    }
+    
+    p{
+        font-size: 32px;
+        padding: 3%;
+    }
+    
+    .star{ height: 40px; }
+    .star1{ height: 22px; }
+    .ball{ height: 24px; }
+    .candle{ height: 26px; }
+    .light{ height: 24px; }
+    .mistletoe{ height: 20px; }
+    .box{ height: 48px; }
+    
+    .btn_music{
+        font-size: 60px;
+    }
+    
+    .music{
+        top: 18%;
+    }
 }
 
-@media only screen and(max-width:599px){
+/* Mobile thường */
+@media only screen and (min-width: 400px) and (max-width: 599px){
     body{
-        height:0 auto;
-        width:100%;
-        background-size:cover;
+        min-height: 100vh;
+        width: 100%;
+        background-size: cover;
         background-repeat: no-repeat;
+        overflow-x: hidden;
     }
    
     .container{
-        margin:3% auto;
+        width: 85%;
+        max-width: 320px;
+        height: auto;
+        min-height: 400px;
+        margin: 5% auto;
+    }
+    
+    p{
+        font-size: 36px;
+        padding: 4%;
+    }
+    
+    .star{ height: 45px; }
+    .star1{ height: 25px; }
+    .ball{ height: 26px; }
+    .candle{ height: 28px; }
+    .light{ height: 26px; }
+    .mistletoe{ height: 22px; }
+    .box{ height: 52px; }
+    
+    .btn_music{
+        font-size: 70px;
+    }
+    
+    .music{
+        top: 20%;
     }
 }
 
-@media only screen and (min-width:899px){
+/* Tablet */
+@media only screen and (min-width: 600px) and (max-width: 899px){
     body{
-        height: 0 auto;
-        width:100%;
-        background-size:cover;
+        min-height: 100vh;
+        width: 100%;
+        background-size: cover;
         background-repeat: no-repeat;
     }
     
     .container{
-        margin:8% auto;
+        width: 60%;
+        max-width: 350px;
+        height: auto;
+        min-height: 420px;
+        margin: 5% auto;
+    }
+    
+    p{
+        font-size: 40px;
+    }
+    
+    .music{
+        top: 20%;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 900px){
+    body{
+        min-height: 100vh;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .container{
+        width: 320px;
+        height: 395px;
+        margin: 5% auto;
+    }
+    
+    .music{
+        top: 22%;
     }
 }
 
