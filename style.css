@@ -288,35 +288,31 @@ p{
     }
     
     p{
-        font-size: 28px;
+        font-size: 32px;
         padding: 2%;
         line-height: 1.4;
     }
     
-    .star{ height: 36px; }
-    .star1{ height: 18px; }
-    .ball{ height: 20px; }
-    .candle{ height: 22px; }
-    .light{ height: 20px; }
-    .mistletoe{ height: 16px; }
-    .box{ height: 42px; }
+    .star{ height: 44px; }
+    .star1{ height: 24px; }
+    .ball{ height: 26px; }
+    .candle{ height: 28px; }
+    .light{ height: 26px; }
+    .mistletoe{ height: 22px; }
+    .box{ height: 52px; }
     
     .btn_music{
-        font-size: 50px;
-        opacity: 0.3;
+        font-size: 55px;
+        opacity: 0.4;
     }
     
     .music{
         top: 15%;
     }
     
-    /* Giảm hiệu ứng tuyết trên mobile để mượt hơn */
+    /* Tuyết đầy đủ trên mobile */
     .snow {
-        opacity: 0.6;
-    }
-    
-    .layer3 {
-        display: none !important;
+        opacity: 0.9;
     }
 }
 
@@ -341,31 +337,31 @@ p{
     }
     
     p{
-        font-size: 32px;
+        font-size: 38px;
         padding: 3%;
         line-height: 1.4;
     }
     
-    .star{ height: 42px; }
-    .star1{ height: 22px; }
-    .ball{ height: 24px; }
-    .candle{ height: 26px; }
-    .light{ height: 24px; }
-    .mistletoe{ height: 20px; }
-    .box{ height: 48px; }
+    .star{ height: 50px; }
+    .star1{ height: 28px; }
+    .ball{ height: 28px; }
+    .candle{ height: 30px; }
+    .light{ height: 28px; }
+    .mistletoe{ height: 24px; }
+    .box{ height: 56px; }
     
     .btn_music{
-        font-size: 60px;
-        opacity: 0.3;
+        font-size: 65px;
+        opacity: 0.4;
     }
     
     .music{
         top: 18%;
     }
     
-    /* Giảm hiệu ứng tuyết trên mobile để mượt hơn */
+    /* Tuyết đầy đủ trên mobile */
     .snow {
-        opacity: 0.7;
+        opacity: 0.95;
     }
 }
 
@@ -451,41 +447,36 @@ p{
     }
     
     p {
-        font-size: 24px;
+        font-size: 28px;
     }
     
-    .star{ height: 32px; }
-    .star1{ height: 16px; }
-    .box{ height: 36px; }
-    .ball{ height: 18px; }
-    .candle{ height: 20px; }
+    .star{ height: 38px; }
+    .star1{ height: 20px; }
+    .box{ height: 42px; }
+    .ball{ height: 22px; }
+    .candle{ height: 24px; }
+    .light{ height: 22px; }
+    .mistletoe{ height: 18px; }
     
     .btn_music{
-        font-size: 45px;
+        font-size: 50px;
     }
     
     .music {
         top: 10%;
     }
     
+    /* Tuyết đầy đủ */
     .snow {
-        opacity: 0.5;
-    }
-    
-    .layer2, .layer3 {
-        display: none !important;
+        opacity: 0.85;
     }
 }
 
-/* Tối ưu hiệu năng cho các thiết bị yếu */
+/* Tối ưu hiệu năng cho các thiết bị yếu - chỉ khi người dùng yêu cầu */
 @media (prefers-reduced-motion: reduce) {
     .snow,
     .layer1, .layer2, .layer3 {
-        animation: none !important;
-    }
-    
-    .star, .star1, .candle, .light, .ball, .mistletoe, .box {
-        animation: none !important;
+        animation-duration: 20s !important;
     }
 }
 
