@@ -215,6 +215,102 @@
             pointer-events: none;
             filter: drop-shadow(0 0 10px rgba(255,215,0,0.8));
         }
+        
+        /* Responsive cho overlay */
+        @media only screen and (max-width: 599px) {
+            .wish-message {
+                font-size: 36px;
+                padding: 15px;
+            }
+            
+            .wish-name {
+                font-size: 52px;
+                margin-top: 10px;
+            }
+            
+            .sub-message {
+                font-size: 18px;
+                margin-top: 10px;
+            }
+            
+            .emoji-decor {
+                font-size: 32px;
+            }
+            
+            .close-wish {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
+            
+            .floating-icon {
+                font-size: 20px;
+            }
+            
+            .sparkle {
+                width: 6px !important;
+                height: 6px !important;
+            }
+        }
+        
+        @media only screen and (max-width: 399px) {
+            .wish-message {
+                font-size: 28px;
+                padding: 10px;
+            }
+            
+            .wish-name {
+                font-size: 42px;
+                margin-top: 8px;
+            }
+            
+            .sub-message {
+                font-size: 14px;
+                margin-top: 8px;
+            }
+            
+            .emoji-decor {
+                font-size: 26px;
+            }
+            
+            .close-wish {
+                font-size: 26px;
+                top: 10px;
+                right: 15px;
+            }
+            
+            .floating-icon {
+                font-size: 16px;
+            }
+        }
+        
+        /* Landscape mode cho mobile */
+        @media only screen and (max-height: 500px) and (orientation: landscape) {
+            .wish-message {
+                font-size: 26px;
+                padding: 8px;
+            }
+            
+            .wish-name {
+                font-size: 36px;
+                margin-top: 5px;
+            }
+            
+            .sub-message {
+                font-size: 12px;
+                margin-top: 5px;
+            }
+            
+            .emoji-decor {
+                font-size: 20px;
+            }
+            
+            .close-wish {
+                font-size: 24px;
+                top: 5px;
+                right: 10px;
+            }
+        }
     </style>
     </head>
     <body>
@@ -311,14 +407,18 @@
                     function createSparkles() {
                         const container = document.getElementById('sparklesContainer');
                         container.innerHTML = '';
-                        for (let i = 0; i < 150; i++) {
+                        // Giảm số lượng sparkles trên mobile để tối ưu hiệu năng
+                        const isMobile = window.innerWidth <= 599;
+                        const sparkleCount = isMobile ? 40 : 100;
+                        
+                        for (let i = 0; i < sparkleCount; i++) {
                             const sparkle = document.createElement('div');
                             sparkle.className = 'sparkle';
                             sparkle.style.left = Math.random() * 100 + '%';
                             sparkle.style.top = Math.random() * 100 + '%';
                             sparkle.style.animationDelay = Math.random() * 2 + 's';
                             sparkle.style.animationDuration = (Math.random() * 2 + 1) + 's';
-                            const size = Math.random() * 12 + 4;
+                            const size = isMobile ? Math.random() * 6 + 3 : Math.random() * 12 + 4;
                             sparkle.style.width = size + 'px';
                             sparkle.style.height = size + 'px';
                             container.appendChild(sparkle);
@@ -330,8 +430,11 @@
                         const container = document.getElementById('floatingIconsContainer');
                         container.innerHTML = '';
                         const icons = ['🎄', '✨', '⭐', '🌟', '❄️', '🎁', '🔔', '💫'];
+                        // Giảm số lượng icons trên mobile để tối ưu hiệu năng
+                        const isMobile = window.innerWidth <= 599;
+                        const iconCount = isMobile ? 12 : 25;
                         
-                        for (let i = 0; i < 25; i++) {
+                        for (let i = 0; i < iconCount; i++) {
                             const icon = document.createElement('div');
                             icon.className = 'floating-icon';
                             icon.textContent = icons[Math.floor(Math.random() * icons.length)];
@@ -341,20 +444,22 @@
                             const startY = Math.random() * 100;
                             icon.style.left = startX + '%';
                             icon.style.top = startY + '%';
-                            icon.style.fontSize = (Math.random() * 25 + 20) + 'px';
+                            // Font size nhỏ hơn trên mobile
+                            icon.style.fontSize = isMobile ? (Math.random() * 15 + 14) + 'px' : (Math.random() * 25 + 20) + 'px';
                             
                             // Animation di chuyển ngẫu nhiên chậm rãi
                             const duration = Math.random() * 15 + 10; // 10-25 giây
                             const delay = Math.random() * 5;
                             
-                            // Tạo keyframes động cho mỗi icon
+                            // Tạo keyframes động cho mỗi icon - di chuyển nhỏ hơn trên mobile
                             const animName = 'float-' + i;
-                            const moveX1 = (Math.random() - 0.5) * 200;
-                            const moveY1 = (Math.random() - 0.5) * 200;
-                            const moveX2 = (Math.random() - 0.5) * 200;
-                            const moveY2 = (Math.random() - 0.5) * 200;
-                            const moveX3 = (Math.random() - 0.5) * 200;
-                            const moveY3 = (Math.random() - 0.5) * 200;
+                            const moveRange = isMobile ? 80 : 200;
+                            const moveX1 = (Math.random() - 0.5) * moveRange;
+                            const moveY1 = (Math.random() - 0.5) * moveRange;
+                            const moveX2 = (Math.random() - 0.5) * moveRange;
+                            const moveY2 = (Math.random() - 0.5) * moveRange;
+                            const moveX3 = (Math.random() - 0.5) * moveRange;
+                            const moveY3 = (Math.random() - 0.5) * moveRange;
                             
                             const keyframes = `
                                 @keyframes ${animName} {
