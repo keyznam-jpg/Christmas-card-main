@@ -215,9 +215,14 @@ p{
 .snow {
     border-radius: 50%;
     opacity: 0.8;
-    position: absolute;
+    position: fixed;
     top: -100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     animation-name: fall;
+    pointer-events: none;
+    z-index: 9998;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     display:none;
